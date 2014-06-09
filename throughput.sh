@@ -17,8 +17,12 @@ done < packet.tmp
 rm -rfv packet.tmp
 tiempo=$(cat log.txt | grep "RTT_TOTAL" | awk {'print $2'})
 throughput=$(echo "$paquetes_enviados / $tiempo"|bc)
-echo "TOTAL PAQUETES ENVIADOS "$paquetes_enviaos >>log.txt
-echo "TOTAL PAQUETES ENVIADOS "$paquetes_enviaos
-echo "THROUGHPUT "$throughput>>log.txt
-echo "THROUGHPUT "$throughput
-
+echo "TOTAL PAQUETES ENVIADOS "$paquetes_enviados >>log.txt
+echo "TOTAL PAQUETES ENVIADOS "$paquetes_enviados
+echo "THROUGHPUT "$throughput "paquetes/segundo">>log.txt
+echo "THROUGHPUT "$throughput "paquetes/segundo"
+echo "PESO DEL ARCHIVO "$bits_transmitidos "bytes">>log.txt
+echo "PESO DEL ARCHIVO "$bits_transmitidos "bytes"
+bps=($echo "$bits_trasmitidos / $tiempo"|bc)
+echo "BYTES/SEGUNDO PROMEDIO "$bps "bps" >>log.txt
+echo "BYTES/SEGUNDO PRIMEDIO "$bps "bps"

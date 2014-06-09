@@ -1,4 +1,4 @@
-rm -rfv log.txt
+echo "">log.txt
 chmod +x *
 echo "Calculanto RTT promedio..."
 ./rtt.sh
