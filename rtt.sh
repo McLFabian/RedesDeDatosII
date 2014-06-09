@@ -20,6 +20,8 @@ done < rtt.tmp
 #echo "RTT TOTAL :" $rtt_total
 #echo "N : " $N
 rtt_promedio=$(echo "scale=10;$rtt_total / $N"|bc)
-echo "RTT_PROMEDIO " $rtt_promedio " segundos" >> rtt_promedio.txt > log.txt #Escrive el resultado en el log
+echo "RTT_TOTAL " $rtt_total " segundos" >>  log.txt #Escrive el resultado en el log
+echo "RTT_PROMEDIO " $rtt_promedio " segundos" >> log.txt #Escrive el resultado en el log
+echo "RTT TOTAL : " $rtt_total
 echo "RTT PROMEDIO :" $rtt_promedio " segundos"
 rm -rfv rtt.tmp
