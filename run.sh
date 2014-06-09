@@ -1,6 +1,6 @@
 echo "Desifrando paquetes..."
-chmod +x tshark.sh
-./tshark.sh
+chmod +x TShark.sh
+./TShark.sh
 echo "Calculanto RTT promedio..."
-./rtt.sh
+./RTT.sh
 
