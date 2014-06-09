@@ -12,7 +12,6 @@ do
 	bits=line
 	let bits_transmitidos=bits_transmitidos+bits
 	let paquetes_enviados=paquetes_enviados+1
-	echo $paquetes_enviados
 done < packet.tmp
 
 rm -rfv packet.tmp
