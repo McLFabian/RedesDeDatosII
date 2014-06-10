@@ -14,6 +14,8 @@ do
 	rtt_total=$(echo $rtt_total" + "$line|bc)
 done < rtt.tmp
 
+rm -rfv rtt.tmp
+
 #echo "RTT TOTAL :" $rtt_total
 #echo "N : " $N
 
@@ -22,4 +24,3 @@ echo "RTT_TOTAL " $rtt_total " segundos" >>  log.txt #Escrive el resultado en el
 echo "RTT_PROMEDIO " $rtt_promedio " segundos" >> log.txt #Escrive el resultado en el log
 echo "RTT TOTAL : " $rtt_total
 echo "RTT PROMEDIO :" $rtt_promedio " segundos"
-rm -rfv rtt.tmp
