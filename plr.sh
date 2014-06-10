@@ -6,6 +6,6 @@ TotalACK=$(echo wc -l ACKTotal.temp " - " 1)
 
 TotalPLR = $(echo $TotalACK " - " $TotalPDU)
 
-echo "Packet loss Rate = " $TotalPLR  >> PLR_total.txt
+echo "Packet loss Rate = " $TotalPLR  >> (Resultados)PLR.txt
 rm -rfv ACKTotal.temp
 rm -rfv PDUFramesTotal.temp

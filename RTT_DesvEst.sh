@@ -32,5 +32,5 @@ done < rtt.tmp
 # Cálculo de Desviación Estándar
 aux=$(echo $rtt_varianza" / " $N|bc -l)
 rtt_desviacion=$(echo "sqrt($aux)"|bc -l)
-echo "Desviacion Estandar RTT = " $rtt_desviacion > RTTDesvEstandar.txt
+echo "Desviacion Estandar RTT = " $rtt_desviacion > (Resultados)RTTDesvEstandar.txt
 rm -rfv rtt.tmp
