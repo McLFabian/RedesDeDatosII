@@ -24,6 +24,6 @@ echo "THROUGHPUT "$throughput "paquetes/segundo">>log.txt
 echo "THROUGHPUT "$throughput "paquetes/segundo"
 echo "PESO DEL ARCHIVO "$bits_transmitidos "bytes">>log.txt
 echo "PESO DEL ARCHIVO "$bits_transmitidos "bytes"
-bps=$(echo "$bits_trasmitidos / $tiempo"|bc)
-echo "BYTES/SEGUNDO PROMEDIO "$bps "bps" >>log.txt
-echo "BYTES/SEGUNDO PRIMEDIO "$bps "bps"
+bps=$(echo $bits_transmitidos" / "$tiempo|bc)
+echo "BYTES/SEGUNDO PROMEDIO "$bps "Bps" >>log.txt
+echo "BYTES/SEGUNDO PRIMEDIO "$bps "Bps"
