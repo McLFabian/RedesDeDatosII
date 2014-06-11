@@ -1,30 +1,23 @@
 #Thoughput
-tshark -r 7 -o column.format:"Time","%Cus:frame.time","Source IP Address","%us","Source Port","%uS","Destination IP Address","%ud","Destination Port","%uD","Protocol","%p","Packet Size","%L" > file.csv
-cat file.csv | grep "192.168.23.32 80 192.168.23.172 49567" > server_to_cliente.tmp
-cat server_to_cliente.tmp | awk {'print $11'} > packet.tmp
-rm -rfv file.csv
-rm -rfv server_to_cliente.tmp
-bits_trasmitidos=0
-paquetes_enviados=0
+tshark -r $1 -T fields -e frame.len -e frame.time_delta > Frame-LenghtAndTime.log #Aquí está entregando sólo el Time,, FALLO.
+cat Frame-LenghtAndTime.log | awk -F'	' '{print $1}' > Lenght.tmp
+cat Frame-LenghtAndTime.log | awk -F'	' '{print $2}' > Time.tmp
+bits=0
+tiempo=0
 
 while read line
 do
-	bits=line
-	let bits_transmitidos=bits_transmitidos+bits
-	let paquetes_enviados=paquetes_enviados+1
-done < packet.tmp
+	bits_sum=$(echo "$line * 8")
+	bits=$(echo $bits" + "$bits_sum|bc)
+done < Lenght.tmp
 
-rm -rfv packet.tmp
-tiempo=$(cat log.txt | grep "RTT_TOTAL" | awk {'print $2'})
-throughput=$(echo "$paquetes_enviados / $tiempo"|bc)
-echo "Paquetes enviados "$paquetes_enviados" timepo "$tiempo
-read
-echo "TOTAL PAQUETES ENVIADOS "$paquetes_enviados >>log.txt
-echo "TOTAL PAQUETES ENVIADOS "$paquetes_enviados
-echo "THROUGHPUT "$throughput "paquetes/segundo">>log.txt
-echo "THROUGHPUT "$throughput "paquetes/segundo"
-echo "PESO DEL ARCHIVO "$bits_transmitidos "bytes">>log.txt
-echo "PESO DEL ARCHIVO "$bits_transmitidos "bytes"
-bps=$(echo $bits_trasmitidos" / "$tiempo|bc)
-echo "BYTES/SEGUNDO PROMEDIO "$bps "bps" >>log.txt
-echo "BYTES/SEGUNDO PRIMEDIO "$bps "bps"
+while read line
+do
+	tiempo=$(echo $tiempo" + "$line|bc -l)
+done < Time.tmp
+
+rm -rfv Lenght.tmp
+rm -rfv Time.tmp
+
+Throughput=$(echo $bits" / "$tiempo|bc -l)
+echo "Throughput total =" $Throughput >> log.txt
