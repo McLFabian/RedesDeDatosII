@@ -2,6 +2,7 @@
 # Para la Desviación Estándar es necesario calcular la Raíz cuadrada de la Varianza, para lo cuál la Fórmula es: 
 #Desviación Estándar = Varianza^(1/2) = [((Sumatoria de 1 hasta n de: (Ai - Media))^(2))/n]^(1/2)
 #Cálculo de Promedio
+tshark -r 02-TráficoSóloRecibido.pcap -T fields -e frame.number -e tcp.seq -e tcp.nxtseq -e frame.time_delta > Frame-RelativeTime.log
 cat Frame-RelativeTime.log | awk -F'	' '{print $4}' > rtt.tmp
 N=0
 rtt_total=0
@@ -32,5 +33,5 @@ done < rtt.tmp
 # Cálculo de Desviación Estándar
 aux=$(echo $rtt_varianza" / " $N|bc -l)
 rtt_desviacion=$(echo "sqrt($aux)"|bc -l)
-echo "Desviacion Estandar RTT = " $rtt_desviacion >> log.txt
+echo "Desviacion Estandar RTT = " $rtt_desviacion >> 00Resultado-RTTDesviacionEstandar.txt
 rm -rfv rtt.tmp

@@ -1,5 +1,5 @@
 #Thoughput
-tshark -r 02-TráficoSóloRecibido.pcap -T fields -e frame.lenght -e frame.time_delta > Frame-LenghtAndTime.log #Aquí está entregando sólo el Time,, FALLO.
+tshark -r 02-TráficoSóloRecibido.pcap -T fields -e frame.len -e frame.time_delta > Frame-LenghtAndTime.log #Aquí está entregando sólo el Time,, FALLO.
 cat Frame-LenghtAndTime.log | awk -F'	' '{print $1}' > Lenght.tmp
 cat Frame-LenghtAndTime.log | awk -F'	' '{print $2}' > Time.tmp
 rm -rfv file.csv
@@ -10,7 +10,7 @@ paquetes_enviados=0
 while read line
 do
 	bits=0
-	bits_sum=$(echo '$line "*" 8')
+	bits_sum=$(echo "$line * 8")
 	bits=$(echo $bits "+" $bits_sum)
 done < Lenght.tmp
 
@@ -24,4 +24,4 @@ rm -rfv Lenght.tmp
 rm -rfv Time.tmp
 
 Throughput=$(echo $bits "/" $tempo |bc -l)
-echo "Throughput total =" $Throughput >> (Resultado)Throughput.txt
+echo "Throughput total =" $Throughput >> 00Resultado-Throughput.txt
