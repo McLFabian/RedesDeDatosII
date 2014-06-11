@@ -1,5 +1,5 @@
 #rtt medicón promedio
-####tshark -r 7 -o column.format:""No","%m","Time","%t","Source","%s","Destination","%d","Protocol", "%p","info", "%i""  >file.csv
+####tshark -r 7 -o -E separator=, column.format:""No","%m","Time","%t","Source","%s","Destination","%d","Protocol", "%p","info", "%i""  >file.csv
 tshark -r 7 -T fields -E separator=, -e frame.number -e frame.time_delta -e ip.src -e ip.dst -e tcp.seq -e tcp.nxtseq > file.csv
 cat file.csv | grep "192.168.23.32,192.168.23.172" > server_to_cliente.tmp
 rm -rfv file.csv
