@@ -1,0 +1,1 @@
+Desviacion Estandar RTT =  .05749605269824793694
