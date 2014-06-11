@@ -1,2 +1,1 @@
-RTT_TOTAL  10.437849000  segundos
-RTT_PROMEDIO  .0008617774  segundos
+

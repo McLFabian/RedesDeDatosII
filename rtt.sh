@@ -1,5 +1,5 @@
 #RTT: Medición promedio
-tshark -r $1 -T fields -e frame.number -e tcp.seq -e tcp.nxtseq -e frame.time_delta > Frame-RelativeTime.log
+tshark -r $1 "ip.proto==6 && ip.dst==192.168.23.172" -T fields -e frame.number -e tcp.seq -e tcp.nxtseq -e frame.time_delta > Frame-RelativeTime.log
 cat Frame-RelativeTime.log | awk -F'	' '{print $4}' > rtt.tmp
 N=0
 rtt_total=0
