@@ -10,6 +10,6 @@ do
 done < rtt.tmp
 rtt_promedio=$(echo $rtt_total " / " $N | bc -l)
 echo "@Fabian" >> (Resultados)RTT.txt
-echo "RTT TOTAL = " $rtt_total >> (Resultados)RTT.txt 
+echo "RTT TOTAL [FABIAN] = " $rtt_total >> (Resultados)RTT.txt 
 echo "RTT PROMEDIO = 0" $rtt_promedio >> (Resultados)RTT.txt
 rm -rfv rtt.tmp
