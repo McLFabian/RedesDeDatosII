@@ -1,10 +1,10 @@
 echo "">log.txt
 chmod +x *
 echo "Calculanto RTT Promedio..."
-./rtt.sh
+./rtt.sh $1
 echo "Calculando RTT Desviación Estandar..."
-./rtt_desv_est.sh
+./rtt_desv_est.sh $1
 echo "Calculando Throughput..."
-./throughput.sh
+./throughput.sh $1
 echo "Calculando PLR..."
-./plr.sh
+./plr.sh $1

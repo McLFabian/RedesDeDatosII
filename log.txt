@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 RTT_TOTAL  10.437849000  segundos
 RTT_PROMEDIO  .0008617774  segundos
 TOTAL PAQUETES ENVIADOS 12107
@@ -20,3 +21,26 @@ TOTAL PAQUETES ENVIADOS 12107
 THROUGHPUT 1159 paquetes/segundo
 PESO DEL ARCHIVO 19788979 bytes
 BYTES/SEGUNDO PROMEDIO 1895886.69083064911170874382 bps
+=======
+
+RTT TOTAL =  5.054933000
+RTT PROMEDIO = 0 .00083497406673273868
+Desviacion Estandar RTT =  .00270792984267669128
+Throughput total =
+Packet loss Rate = 
+Throughput total = 15353004.15105724769862798747
+Packet loss Rate = 
+Packet loss Rate = 
+Packet loss Rate = 
+Packet loss Rate = 
+Packet loss Rate = 
+Packet loss Rate = 
+Packet loss Rate =  6683
+Packet loss Rate =  100.00000000000000000000 %
+Packet loss Rate =  100.00000000000000000000 %
+Packet loss Rate =  100.00000000000000000000 %
+Packet loss Rate =   %
+Packet loss Rate =   %
+Packet loss Rate =   %
+Packet loss Rate =  .09914077990746860541 %
+>>>>>>> fbe635aa0e68035ceba6c21c6a9ab1d4f4e758a1
