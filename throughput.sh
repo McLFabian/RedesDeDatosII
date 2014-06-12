@@ -11,21 +11,6 @@ do
 	bits=$(echo $bits" + "$bits_sum|bc)
 done<Lenght.tmp
 
-<<<<<<< HEAD
-rm -rfv packet.tmp
-tiempo=$(cat log.txt | grep "RTT_TOTAL" | awk {'print $2'})
-throughput=$(echo "$paquetes_enviados / $tiempo"|bc)
-echo "Paquetes enviados "$paquetes_enviados" timepo "$tiempo
-echo "TOTAL PAQUETES ENVIADOS "$paquetes_enviados >>log.txt
-echo "TOTAL PAQUETES ENVIADOS "$paquetes_enviados
-echo "THROUGHPUT "$throughput "paquetes/segundo">>log.txt
-echo "THROUGHPUT "$throughput "paquetes/segundo"
-echo "PESO DEL ARCHIVO "$bits_transmitidos "bytes">>log.txt
-echo "PESO DEL ARCHIVO "$bits_transmitidos "bytes"
-bps=$(echo $bits_transmitidos" / "$tiempo|bc)
-echo "BYTES/SEGUNDO PROMEDIO "$bps "Bps" >>log.txt
-echo "BYTES/SEGUNDO PRIMEDIO "$bps "Bps"
-=======
 echo "paso lenght"
 
 while read line
@@ -40,4 +25,3 @@ rm -rfv Time.tmp
 
 Throughput=$(echo $bits" / "$tiempo|bc -l)
 echo "Throughput total =" $Throughput >> log.txt
->>>>>>> fbe635aa0e68035ceba6c21c6a9ab1d4f4e758a1

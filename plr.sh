@@ -7,5 +7,5 @@ Porcentaje_aux=$(echo $LOSS" * "100|bc)
 echo "--" $TotalPDU
 PorcentajePLR=$(echo $Porcentaje_aux" / "$TotalPDU|bc -l)
 echo "Packet loss Rate = " $PorcentajePLR" %">>log.txt
-#rm -rfv LOSSPkt.temp
-#rm -rfv PDUFramesTotal.temp
+rm -rfv LOSSPkt.temp
+rm -rfv PDUFramesTotal.temp
