@@ -22,6 +22,7 @@ echo "paso time"
 
 rm -rfv Lenght.tmp
 rm -rfv Time.tmp
+rm -rfv Frame-LenghtAndTime.log
 
 Throughput=$(echo $bits" / "$tiempo|bc -l)
 echo "Throughput total =" $Throughput >> log.txt
