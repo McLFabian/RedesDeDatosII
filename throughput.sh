@@ -7,14 +7,18 @@ tiempo=0
 
 while read line
 do
-	bits_sum=$(echo "$line * 8")
+	bits_sum=$(echo "$line * 8"|bc)
 	bits=$(echo $bits" + "$bits_sum|bc)
-done < Lenght.tmp
+done<Lenght.tmp
+
+echo "paso lenght"
 
 while read line
 do
 	tiempo=$(echo $tiempo" + "$line|bc -l)
-done < Time.tmp
+done<Time.tmp
+
+echo "paso time"
 
 rm -rfv Lenght.tmp
 rm -rfv Time.tmp
