@@ -13,3 +13,4 @@ rtt_promedio=$(echo $rtt_total" / "$N |bc -l)
 echo "RTT TOTAL = " $rtt_total >> log.txt 
 echo "RTT PROMEDIO = 0" $rtt_promedio >> log.txt
 rm -rfv rtt.tmp
+rm -rfv Frame-RelativeTime.log
