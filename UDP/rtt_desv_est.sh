@@ -2,7 +2,7 @@
 # Para la Desviación Estándar es necesario calcular la Raíz cuadrada de la Varianza, para lo cuál la Fórmula es: 
 #Desviación Estándar = Varianza^(1/2) = [((Sumatoria de 1 hasta n de: (Ai - Media))^(2))/n]^(1/2)
 #Cálculo de Promedio
-tshark -r $1 "(ip.proto == 17 && !frame.len<=590) && (udp.dstport == 15200)" -T fields -e frame.time_delta > Frame-RelativeTime.log
+tshark -r $1 "(ip.proto == 17 && frame.len>590) && (udp.dstport == 15200)" -T fields -e frame.time_delta > Frame-RelativeTime.log
 cat Frame-RelativeTime.log | awk -F'	' '{print $1}' > rtt.tmp
 N=0
 rtt_total=0
