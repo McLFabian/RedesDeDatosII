@@ -37,5 +37,5 @@ done < rtt.tmp
 aux=$(echo $rtt_varianza" / " $N|bc -l)
 rtt_desviacion=$(echo "sqrt($aux)"|bc -l)
 echo "Desviacion Estandar RTT = " $rtt_desviacion >> log.txt
-#rm -rfv rtt.tmp
-#rm -rfv Frame-RelativeTime.log
+rm -rfv rtt.tmp
+rm -rfv Frame-RelativeTime.log
