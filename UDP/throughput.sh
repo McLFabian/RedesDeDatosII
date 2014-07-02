@@ -1,5 +1,5 @@
 #Thoughput
-tshark -r $1 "ip.proto==6 && ip.dst==192.168.23.172 && frame.len>94" -T fields -e frame.len -e frame.time_delta > Frame-LenghtAndTime.log
+tshark -r $1 "(ip.proto == 17 && frame.len>590) && (udp.dstport == 15200)" -T fields  -e frame.len -e frame.time_delta > Frame-LenghtAndTime.log
 cat Frame-LenghtAndTime.log | awk -F'	' '{print $1}' > Lenght.tmp
 cat Frame-LenghtAndTime.log | awk -F'	' '{print $2}' > Time.tmp
 bits=0
