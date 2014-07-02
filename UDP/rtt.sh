@@ -17,5 +17,5 @@ rtt_promedio_2=$(echo $rtt_promedio" * 2"|bc -l) #RTT PROMEDIO DOS VIAS
 echo "RTT TOTAL = " $rtt_total_2 >> log.txt
 echo "RTT PROMEDIO = 0" $rtt_promedio_2 >> log.txt
 
-#rm -rfv rtt.tmp
-#rm -rfv Frame-RelativeTime.log
+rm -rfv rtt.tmp
+rm -rfv Frame-RelativeTime.log
